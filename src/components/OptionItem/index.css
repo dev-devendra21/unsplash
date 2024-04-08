@@ -1,0 +1,21 @@
+.option-item {
+  margin: 10px;
+}
+
+.option-item > button {
+  width: 100px;
+  background-color: #ffffff;
+  color: orangered;
+  padding: 10px;
+  border: 2px solid #000000;
+  cursor: pointer;
+  transition: all ease-in 0.5s;
+}
+
+.option-item > button:hover {
+  background-color: #000000;
+  border-color: #ffffff;
+  transform: skewX(-20deg);
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}

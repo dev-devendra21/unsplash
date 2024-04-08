@@ -1,10 +1,10 @@
 import React from 'react'
-
-function OptionItem() {
+import './index.css'
+function OptionItem({ name }) {
     return (
         <>
-            <li>
-                <button>Mountains</button>
+            <li className='option-item'>
+                <button>{name}</button>
             </li>
         </>
     )
