@@ -1,10 +1,10 @@
 import React from 'react'
 import './index.css'
-function OptionItem({ name }) {
+function OptionItem({ name, onSelect }) {
     return (
         <>
             <li className='option-item'>
-                <button>{name}</button>
+                <button onClick={() => onSelect(name)} >{name}</button>
             </li>
         </>
     )

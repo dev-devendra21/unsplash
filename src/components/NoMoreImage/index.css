@@ -1,0 +1,13 @@
+.no-more-image-container {
+  width: 80vw;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-more-image-container > h1 {
+  color: orangered;
+  font-size: 24px;
+  text-align: center;
+}
