@@ -4,16 +4,14 @@ import './App.css';
 import OptionItem from './components/OptionItem';
 import SearchInput from './components/SearchInput';
 import ImageItem from './components/ImageItem';
-import { createApi } from 'unsplash-js';
 import Pagination from './components/Pagination';
 import Loader from './components/Loader';
 
 import { OPTIONS, APISTATE } from './utils/constant';
+import unsplash from './utils/unsplash';
 import NoMoreImage from './components/NoMoreImage';
 
-const api = createApi({
-  accessKey: "Mf33duSQSE0WYCPlfJVU8qj0E0e43J5WFps8M1hgxhc"
-});
+
 
 function App() {
   const [data, setData] = useState({
@@ -30,7 +28,7 @@ function App() {
         setData((prev => {
           return { ...prev, status: APISTATE.LOADING }
         }))
-        api.search
+        unsplash.search
           .getPhotos({ query: title, orientation: "landscape", page, perPage: 8 })
           .then(result => {
             setData((prev => {
@@ -44,7 +42,6 @@ function App() {
             }))
           });
       }
-
       fetchData()
     }
   }, [page, title]);
