@@ -5,7 +5,7 @@ import { IoSearch } from "react-icons/io5";
 function SearchInput({ onSearchValue, value, onSearch }) {
     return (
         <div className='search-container'>
-            <input className='search-input' value={value} onChange={onSearchValue} type='search' />
+            <input className='search-input' placeholder='Enter the keyword to search' value={value} onChange={onSearchValue} type='search' />
             <button onClick={onSearch} className='search-button'><IoSearch color='#ffffff' fontSize={20} /></button>
         </div>
     )

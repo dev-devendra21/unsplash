@@ -99,7 +99,7 @@ function App() {
             {
               data.value.results?.length > 0 ?
                 (data.value.results.map(result => (
-                  <ImageItem key={result.id} imageSrc={result.urls.regular} altDescription={result.alt_description} placeholder={result.urls.thumb} />
+                  <ImageItem key={result.id} imageSrc={result.urls.regular} description={result.description} altDescription={result.alt_description} placeholder={result.urls.thumb} />
                 ))) : (<p>Please enter a valid search</p>)
             }
           </ul>
