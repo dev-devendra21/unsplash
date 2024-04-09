@@ -3,7 +3,7 @@ import './index.css'
 function NoMoreImage() {
     return (
         <div className='no-more-image-container'>
-            <h1>Oops! No more images...</h1>
+            <h1>Sorry No Images</h1>
         </div>
     )
 }

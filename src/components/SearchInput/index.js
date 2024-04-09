@@ -6,7 +6,7 @@ function SearchInput({ onSearchValue, value, onSearch }) {
     return (
         <div className='search-container'>
             <input className='search-input' placeholder='Enter the keyword to search' value={value} onChange={onSearchValue} type='search' />
-            <button onClick={onSearch} className='search-button'><IoSearch color='#ffffff' fontSize={20} /></button>
+            <button onClick={() => onSearch({ type: 'SEARCH', payload: value })} className='search-button'><IoSearch color='#ffffff' fontSize={20} /></button>
         </div>
     )
 }

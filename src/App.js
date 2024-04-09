@@ -10,7 +10,7 @@ import Loader from './components/Loader';
 import { OPTIONS, APISTATE } from './utils/constant';
 import unsplash from './utils/unsplash';
 import NoMoreImage from './components/NoMoreImage';
-
+import Error from './components/Error';
 
 
 function App() {
@@ -20,27 +20,27 @@ function App() {
     errorMsg: null,
   })
   const [searchTerm, setSearchTerm] = useState('')
-  const [page, setPage] = useState(0)
+  const [page, setPage] = useState(1)
   const [title, setTitle] = useState('')
   useEffect(() => {
     if (title !== "") {
-      function fetchData() {
-        setData((prev => {
-          return { ...prev, status: APISTATE.LOADING }
-        }))
-        unsplash.search
-          .getPhotos({ query: title, orientation: "landscape", page, perPage: 8 })
-          .then(result => {
+      async function fetchData() {
+        try {
+          setData((prev => {
+            return { ...prev, status: APISTATE.LOADING, errorMsg: "" }
+          }))
+          const res = await unsplash.search
+            .getPhotos({ query: title, orientation: "landscape", page, perPage: 8 })
+          if (res.status === 200) {
             setData((prev => {
-              return { ...prev, status: APISTATE.SUCCESS, value: result.response };
-            }));
-          })
-          .catch((error) => {
-            setData((prev => {
-              return { ...prev, status: APISTATE.ERROR, errorMsg: "An error occurred" || error };
-
+              return { ...prev, status: APISTATE.SUCCESS, value: res.response }
             }))
-          });
+          }
+        } catch (err) {
+          setData((prev => {
+            return { ...prev, status: APISTATE.ERROR, errorMsg: err.message }
+          }))
+        }
       }
       fetchData()
     }
@@ -50,9 +50,14 @@ function App() {
     setSearchTerm(event.target.value)
   }
 
-  const handleSearch = () => {
+  const handleSearch = ({ type, payload }) => {
+    if (type === 'SEARCH') {
+      setTitle(payload)
+    }
+    if (type === 'OPTION') {
+      setTitle(payload)
+    }
     setPage(1)
-    setTitle(searchTerm)
     setSearchTerm("")
   }
   const handlePagination = (text) => {
@@ -63,11 +68,6 @@ function App() {
       setPage(page + 1)
     }
   }
-  const handleOption = (name) => {
-    setPage(1)
-    setTitle(name)
-    setSearchTerm("")
-  }
   return (
     <div className="main-container">
       <img src="unsplash.png" className='logo' alt="unsplash logo" />
@@ -75,7 +75,7 @@ function App() {
       <section className='option-container'>
         <ul>
           {OPTIONS.map(option => (
-            <OptionItem key={option.id} name={option.name} onSelect={handleOption} />
+            <OptionItem key={option.id} name={option.name} onSelect={handleSearch} />
           ))}
 
         </ul>
@@ -90,23 +90,35 @@ function App() {
       </div>
       <div>
         {
-          data.status === APISTATE.ERROR && <NoMoreImage />
+          ((data.status === APISTATE.ERROR) && (data.errorMsg === "Failed to fetch")) && <Error />
+        }
+        {
+          ((data.status === APISTATE.ERROR) && (data.errorMsg.includes("JSON"))) && <NoMoreImage />
         }
       </div>
-      {(data.status === APISTATE.SUCCESS && page > 0) && (
-        <main className='image-container'>
-          <ul>
-            {
-              data.value.results?.length > 0 ?
-                (data.value.results.map(result => (
-                  <ImageItem key={result.id} imageSrc={result.urls.regular} description={result.description} altDescription={result.alt_description} placeholder={result.urls.thumb} />
-                ))) : (<p>Please enter a valid search</p>)
-            }
-          </ul>
-        </main>
-      )
-      }
-      <footer> {(page > 0 && data.value.results?.length > 0) && <Pagination pageNo={page} setPageNo={handlePagination} noMore={data.status === APISTATE.ERROR} />}</footer>
+      <>
+        {(data.status === APISTATE.SUCCESS) && (
+          <main className='image-container'>
+            <ul>
+              {
+                data.value.results?.length > 0 ?
+                  (data.value.results.map(result => (
+                    <ImageItem key={result.id} imageSrc={result.urls.regular} altDescription={result.alt_description} placeholder={result.urls.thumb} />
+                  ))) : (<NoMoreImage />)
+              }
+            </ul>
+          </main>
+        )
+        }
+      </>
+      <>
+        {
+          (data.errorMsg !== "Failed to fetch") && (
+            <footer> {(data.value.results?.length > 0) && <Pagination pageNo={page} setPageNo={handlePagination} noMore={(data.status === APISTATE.ERROR) && (data.errorMsg?.includes("JSON"))} />}</footer>
+          )
+        }
+      </>
+
     </div >
   );
 }

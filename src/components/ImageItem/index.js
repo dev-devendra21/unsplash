@@ -1,11 +1,11 @@
 import React from 'react'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import { Tooltip } from 'react-tooltip';
+import { AiOutlineDownload } from "react-icons/ai";
 import './index.css'
 
 
-function ImageItem({ imageSrc, altDescription, placeholder, description }) {
+function ImageItem({ imageSrc, altDescription, placeholder }) {
     const handleDownload = async () => {
         const imageBytes = await fetch(imageSrc).then((res) => res.arrayBuffer().then((buffer) => new Blob([buffer], { type: 'image/jpeg' })));
         const link = document.createElement('a');
@@ -17,9 +17,9 @@ function ImageItem({ imageSrc, altDescription, placeholder, description }) {
         document.body.removeChild(link);
     }
     return (
-        <li data-tooltip-id="my-tooltip" className='image-item' data-tooltip-content={`${description !== null ? description.substring(0, 30) : altDescription.substring(0, 30)}...`}>
-            <Tooltip id="my-tooltip" render={({ content }) => (<span>{content}</span>)} />
-            <LazyLoadImage effect='blur' onClick={handleDownload} alt={altDescription} src={imageSrc} className='image' placeholderSrc={placeholder} />
+        <li className='image-item' data-description={`${altDescription.substring(0, 40)}...`}>
+            <AiOutlineDownload className='download-icon' onClick={handleDownload} />
+            <LazyLoadImage effect='blur' alt={altDescription} src={imageSrc} className='image' placeholderSrc={placeholder} />
         </li>
     )
 }

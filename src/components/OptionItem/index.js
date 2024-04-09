@@ -4,7 +4,7 @@ function OptionItem({ name, onSelect }) {
     return (
         <>
             <li className='option-item'>
-                <button onClick={() => onSelect(name)} >{name}</button>
+                <button onClick={() => onSelect({ type: "OPTION", payload: name })} >{name}</button>
             </li>
         </>
     )
