@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# React Unsplash App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A single-page React application that utilizes the Unsplash JavaScript SDK to display and search for images from the Unsplash API.
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+1. Clone the repository: `git clone` [https://github.com/your-username/react-unsplash-app.git](https://github.com/dev-devendra21/unsplash.git)
 
-### `npm start`
+2. Install dependencies: `npm install`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Configuration
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Before running the app, you need to obtain an API key from Unsplash.
 
-### `npm test`
+1. Sign up or log in to your Unsplash account: [Unsplash Developer](https://unsplash.com/developers)
+2. Create a new application to generate an API key.
+3. Copy your API key and paste it in the `.env` file: REACT_APP_UNSPLASH_ACCESS_KEY=your-access-key
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Usage
 
-### `npm run build`
+To start the development server and run the app: `npm start`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Search for images using keywords.
+- Display search results in a Flex layout.
+- Hover on an image to view description in tooltip.
+- Download the image.
+- Pagination.
 
-### `npm run eject`
+## Downloading Images
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To download an image, follow these steps:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Click on the image you want to download.
+2. Click on the Download Icon to download your image in jpg format .
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Credits
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Unsplash](https://unsplash.com) for providing the API and SDK.
+- [React](https://reactjs.org/) for the JavaScript library.
+- [react lazy load image component](https://www.albertjuhe.com/react-lazy-load-image-component/) for lazy load the image.
+- [react loader spinner](https://mhnpd.github.io/react-loader-spinner/docs/intro/) for add a loader during data fetching.
+- [react icons](https://react-icons.github.io/react-icons/) for add icons in project.
