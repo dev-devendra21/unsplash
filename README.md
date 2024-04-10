@@ -2,6 +2,10 @@
 
 A single-page React application that utilizes the Unsplash JavaScript SDK to display and search for images from the Unsplash API.
 
+## Demo Project Link
+
+You can access the deployed version of this project [here](https://<username>.github.io/<repository-name>).
+
 ## Installation
 
 1. Clone the repository: `git clone` [https://github.com/your-username/react-unsplash-app.git](https://github.com/dev-devendra21/unsplash.git)
