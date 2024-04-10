@@ -4,7 +4,7 @@ A single-page React application that utilizes the Unsplash JavaScript SDK to dis
 
 ## Demo Project Link
 
-You can access the deployed version of this project [here](https://<username>.github.io/<repository-name>).
+You can access the deployed version of this project [link](https://unsplash-ruddy.vercel.app/).
 
 ## Installation
 
