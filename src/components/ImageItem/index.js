@@ -5,7 +5,7 @@ import { AiOutlineDownload } from "react-icons/ai";
 import './index.css'
 
 
-function ImageItem({ imageSrc, altDescription, placeholder }) {
+function ImageItem({ imageSrc, altDescription, placeholder, description }) {
     const handleDownload = async () => {
         const imageBytes = await fetch(imageSrc).then((res) => res.arrayBuffer().then((buffer) => new Blob([buffer], { type: 'image/jpeg' })));
         const link = document.createElement('a');
@@ -17,7 +17,7 @@ function ImageItem({ imageSrc, altDescription, placeholder }) {
         document.body.removeChild(link);
     }
     return (
-        <li className='image-item' data-description={`${altDescription.substring(0, 40)}...`}>
+        <li className='image-item' data-description={`${description === null ? altDescription.substring(0, 21) : description.substring(0, 21)}`}>
             <AiOutlineDownload className='download-icon' onClick={handleDownload} />
             <LazyLoadImage effect='blur' alt={altDescription} src={imageSrc} className='image' placeholderSrc={placeholder} />
         </li>
