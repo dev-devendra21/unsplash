@@ -3,11 +3,18 @@
   border-bottom: 1px solid #000000;
   border-left: 1px solid #000000;
   border-top: 1px solid #000000;
-  width: 200px;
+  width: 340px;
 }
+
+@media screen and (max-width: 280px) {
+  .search-container {
+    width: 260px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .search-container {
-    width: 400px;
+    width: 500px;
   }
 }
 .search-input {

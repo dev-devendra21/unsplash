@@ -8,7 +8,7 @@ You can access the deployed version of this project [link](https://unsplash-rudd
 
 ## Installation
 
-1. Clone the repository: `git clone` [https://github.com/your-username/react-unsplash-app.git](https://github.com/dev-devendra21/unsplash.git)
+1. Clone the repository: `git clone` [https://github.com/dev-devendra21/react-unsplash-app.git](https://github.com/dev-devendra21/unsplash.git)
 
 2. Install dependencies: `npm install`
 
