@@ -70,7 +70,7 @@ function App() {
   }
   return (
     <div className="main-container">
-      <img src="unsplash.png" className='logo' alt="unsplash logo" />
+      <img src="icon.png" className='logo' alt="website logo" />
       <SearchInput value={searchTerm} onSearchValue={handleSearchValue} onSearch={handleSearch} />
       <section className='option-container'>
         <ul>
