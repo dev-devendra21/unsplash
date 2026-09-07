@@ -1,21 +1,63 @@
 .option-item {
-  margin: 10px;
+  list-style: none;
+  flex-shrink: 0;
 }
 
-.option-item > button {
-  width: 100px;
-  background-color: #ffffff;
-  color: orangered;
-  padding: 10px;
-  border: 2px solid #000000;
+.option-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 15px;
+  border: 1px solid #e4e4e4;
+  border-radius: 100px;
+  background: #ffffff;
+  color: #555555;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
   cursor: pointer;
-  transition: all ease-in 0.5s;
+  transition:
+    color 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
 }
 
-.option-item > button:hover {
-  background-color: #000000;
-  border-color: #ffffff;
-  transform: skewX(-20deg);
-  border-top-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+.option-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #b5b5b5;
+  transition: background 180ms ease;
+}
+
+.option-button:hover {
+  border-color: #111111;
+  background: #111111;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.option-button:hover .option-dot {
+  background: #ffffff;
+}
+
+.option-button:active {
+  transform: translateY(0);
+}
+
+.option-button:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 3px;
+}
+
+@media screen and (max-width: 700px) {
+  .option-button {
+    height: 36px;
+    padding: 0 13px;
+    font-size: 11px;
+  }
 }

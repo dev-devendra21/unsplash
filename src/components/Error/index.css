@@ -1,13 +1,66 @@
 .error-container {
-  width: 80vw;
-  height: 46vh;
+  min-height: 360px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  text-align: center;
 }
 
-.error-container > h1 {
-  color: orangered;
+.error-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 20px;
+  border: 1px solid #e5e5e5;
+  border-radius: 50%;
+  background: #fafafa;
+  color: #555555;
+}
+
+.error-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.error-content h2 {
+  margin: 0;
+  color: #111111;
   font-size: 24px;
-  text-align: center;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.error-content p {
+  max-width: 390px;
+  margin: 0;
+  color: #888888;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media screen and (max-width: 600px) {
+  .error-container {
+    min-height: 280px;
+    padding: 48px 20px;
+  }
+
+  .error-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 16px;
+  }
+
+  .error-content h2 {
+    font-size: 21px;
+  }
+
+  .error-content p {
+    font-size: 12px;
+  }
 }
