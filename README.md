@@ -129,9 +129,6 @@ This project demonstrates practical React development concepts including:
 * **React** — Frontend library
   https://react.dev/
 
-* **React Lazy Load Image Component** — Lazy loading images
-  https://www.albertjuhe.com/react-lazy-load-image-component/
-
 * **React Loader Spinner** — Loading indicator
   https://mhnpd.github.io/react-loader-spinner/
 
