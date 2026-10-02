@@ -131,7 +131,7 @@ function App() {
       >
         <nav className="navbar">
           <a href="/" className="brand">
-            <img src="icon.png" className="brand-logo" alt="Photo Gallery" />
+            <img src="icon.png" className="brand-logo" alt="Pix Libre" />
 
             <span className="brand-name">Pix Libre</span>
           </a>
